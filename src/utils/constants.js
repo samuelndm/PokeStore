@@ -1,12 +1,3 @@
-export const POKEMON_STATS = {
-  HP: "hp",
-  ATTACK: "attack",
-  DEFENSE: "defense",
-  SPECIAL_ATTACK: "special-attack",
-  SPECIAL_DEFENSE: "special-defense",
-  SPEED: "speed",
-};
-
 export const POKEMON_TYPES = {
   normal: { id: 1, name: { pt_br: "Normal" }, color: "#C4C0B4" },
   fighting: { id: 2, name: { pt_br: "Lutador" }, color: "#852816" },
@@ -28,4 +19,13 @@ export const POKEMON_TYPES = {
   fairy: { id: 18, name: { pt_br: "Fada" }, color: "#E29FE6" },
   unknown: { id: 10001, name: { pt_br: "Desconhecido" }, color: "#000" },
   shadow: { id: 10002, name: { pt_br: "Sombrio" }, color: "#2E3053" },
+};
+
+export const POKEMON_STATS = {
+  HP: "hp",
+  ATTACK: "attack",
+  DEFENSE: "defense",
+  SPECIAL_ATTACK: "special-attack",
+  SPECIAL_DEFENSE: "special-defense",
+  SPEED: "speed",
 };
