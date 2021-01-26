@@ -22,6 +22,7 @@ export default createGlobalStyle`
       --primary-color: #31217C;
       --secondary-color: #0050A7;
       --third-color: #0097c487;
+      --background-color: #EAEAEA;
       --navbar-height: 60px;
     }
 
@@ -36,6 +37,7 @@ export const PageContainer = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
+  background-color: var(--background-color);
 `;
 
 export const ResponsiveContainer = styled.div`
