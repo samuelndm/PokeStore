@@ -26,12 +26,6 @@ export const POKEMON_TYPES = {
   dragon: { id: 16, name: { pt_br: "Dragão" }, color: "#7361D1" },
   dark: { id: 17, name: { pt_br: "Noturno" }, color: "#413831" },
   fairy: { id: 18, name: { pt_br: "Fada" }, color: "#E29FE6" },
-  unknown: { name: { pt_br: "Desconhecido" }, color: "#000" },
-  shadow: { name: { pt_br: "Sombrio" }, color: "#2E3053" },
-};
-
-export const CURRENT_POKEMON_STATUS = {
-  NEW: "new",
-  CAPTURED: "captured",
-  CUSTOM: "custom",
+  unknown: { id: 10001, name: { pt_br: "Desconhecido" }, color: "#000" },
+  shadow: { id: 10002, name: { pt_br: "Sombrio" }, color: "#2E3053" },
 };
