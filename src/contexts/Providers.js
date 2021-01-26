@@ -1,10 +1,11 @@
 import React from "react";
 import NotificationProvider from "./NotificationProvider";
+import CurrentPokemonTypeProvider from "./CurrentPokemonTypeProvider";
 
 const Providers = ({ children }) => {
   return (
     <NotificationProvider>
-      <>{children}</>
+      <CurrentPokemonTypeProvider>{children}</CurrentPokemonTypeProvider>
     </NotificationProvider>
   );
 };
