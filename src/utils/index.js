@@ -21,3 +21,21 @@ export const createEmptyArray = (size) => {
 
   return array;
 };
+
+export const createArrayOfGivenNumber = (number, reverse) => {
+  if (number && Number.isInteger(number)) {
+    const tmpPages = [];
+
+    if (reverse) {
+      for (let i = number - 1; i >= 0; i--) {
+        tmpPages.push(i);
+      }
+    } else {
+      for (let i = 0; i < number; i++) {
+        tmpPages.push(i);
+      }
+    }
+    return tmpPages;
+  }
+  return [];
+};
