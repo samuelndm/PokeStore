@@ -4,9 +4,10 @@ export const Container = styled.div`
   width: ${({ width }) => width || "auto"};
   & a {
     all: unset;
-    height: auto;
+    padding: ${({ padding }) => padding || "0"};
     width: ${({ width }) => width || "auto"};
-    display: flex;
+    height: ${({ height }) => height || "auto"};
+    display: ${({ display }) => display || "flex"};
     align-items: center;
     justify-content: ${({ childrenPosition }) => {
       switch (childrenPosition) {
@@ -18,9 +19,15 @@ export const Container = styled.div`
           return "center";
       }
     }};
-    color: ${({ textColor }) => textColor || "#000"};
-    font-size: 14px;
+
+    color: ${({ color }) => color || "#000"};
+    font-size: ${({ fontSize }) => fontSize || "14px"};
+    font-weight: ${({ fontWeight }) => fontWeight || "500"};
     cursor: pointer;
+
+    &:hover {
+      color: ${({ colorOnHover }) => colorOnHover || "#000"};
+    }
   }
 `;
 

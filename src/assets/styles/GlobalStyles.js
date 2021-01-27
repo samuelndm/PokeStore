@@ -22,8 +22,10 @@ export default createGlobalStyle`
       --primary-color: #31217C;
       --secondary-color: #0050A7;
       --third-color: #0097c487;
+      --yellow-color: #FFE031;
+      --blue-color: #3866B3;
       --background-color: #EAEAEA;
-      --navbar-height: 60px;
+      --navbar-height: 127px;
     }
 
 `;
