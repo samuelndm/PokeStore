@@ -15,7 +15,7 @@ const PagesDots = ({ pages, currentPage, setCurrentPage, limit }) => {
   }, [pages, currentPage]);
 
   useEffect(() => {
-    setPrevPages(createArrayOfGivenNumber(limit, "reverse"));
+    setPrevPages(createArrayOfGivenNumber(limit - 1, "reverse"));
     setnextPages(createArrayOfGivenNumber(limit));
   }, [limit]);
 

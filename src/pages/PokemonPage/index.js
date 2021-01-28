@@ -22,11 +22,10 @@ const PokemonPage = ({ match }) => {
       const { data } = await getPokemonById(pokemonId);
       setPokemon(data);
 
-      const pokemonType =
-        currentPokemonType ||
-        getPokemonTypeByName(data?.types?.[0]?.type?.name);
-
-      setCurrentPokemonType(pokemonType);
+      if (!currentPokemonType) {
+        const pokemonType = getPokemonTypeByName(data?.types?.[0]?.type?.name);
+        setCurrentPokemonType(pokemonType);
+      }
     } catch (err) {
       console.error(err);
 
@@ -39,11 +38,6 @@ const PokemonPage = ({ match }) => {
 
     // eslint-disable-next-line
   }, [pokemonId]);
-
-  useEffect(() => {
-    setCurrentPokemonType({});
-    // eslint-disable-next-line
-  }, []);
 
   useEffect(() => {
     loadPokemon();

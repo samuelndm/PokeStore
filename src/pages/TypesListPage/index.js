@@ -1,8 +1,8 @@
 import React, { useEffect } from "react";
+import { useCurrentPokemonTypeContext } from "../../contexts";
 import { POKEMON_TYPES_LIST } from "../../utils/constants";
 import * as GS from "../../assets/styles/GlobalStyles";
 import * as C from "../../components";
-import { useCurrentPokemonTypeContext } from "../../contexts";
 
 const TypesListPage = () => {
   const { setCurrentPokemonType } = useCurrentPokemonTypeContext();

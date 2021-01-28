@@ -1,6 +1,10 @@
 import React, { useCallback, useEffect, useState } from "react";
+import PropTypes from "prop-types";
 import { getTypesById } from "../../services/endpoints/type";
-import { handlePokemonsPagination } from "../../utils/PokemonListUtil";
+import {
+  filterPokemonsByKeyword,
+  handlePokemonsPagination,
+} from "../../utils/PokemonListUtil";
 import {
   useCurrentPokemonTypeContext,
   useNotificationContext,
@@ -9,7 +13,7 @@ import * as S from "./styles";
 import * as UI from "../UIComponents";
 import Pokemon from "./Pokemon";
 
-const PokemonsList = () => {
+const PokemonsList = ({ searchedPokemon }) => {
   const { createNotification, NOTIFICATION_TYPES } = useNotificationContext();
   const { currentPokemonType } = useCurrentPokemonTypeContext();
   const [typeList, setTypeList] = useState([]);
@@ -43,16 +47,19 @@ const PokemonsList = () => {
     const pokemonsEndpointTemp = handlePokemonsPagination(
       typeList,
       currentPage,
-      itemsPerPage
+      itemsPerPage,
+      searchedPokemon
     );
 
     setPokemonsEndpoint([...pokemonsEndpointTemp]);
-  }, [typeList, currentPage, itemsPerPage]);
+  }, [typeList, currentPage, itemsPerPage, searchedPokemon]);
 
-  return (
+  return searchedPokemon && !pokemonsEndpoint.length ? (
+    <S.NotFound>Nenhum pokémon foi encontrado</S.NotFound>
+  ) : (
     <S.Container>
       <S.Pokemons>
-        {pokemonsEndpoint?.map((endpoint, index) => (
+        {pokemonsEndpoint?.map((endpoint) => (
           <Pokemon
             pokemonEndpoint={endpoint}
             key={`pokemon-endpoint-${endpoint}`}
@@ -64,11 +71,15 @@ const PokemonsList = () => {
         itemsPerPage={itemsPerPage}
         currentPage={currentPage}
         setCurrentPage={setCurrentPage}
-        totalItems={typeList.length}
+        totalItems={filterPokemonsByKeyword(typeList, searchedPokemon).length}
         color={currentPokemonType?.color}
       />
     </S.Container>
   );
+};
+
+PokemonsList.propTypes = {
+  searchedPokemon: PropTypes.string,
 };
 
 export default PokemonsList;

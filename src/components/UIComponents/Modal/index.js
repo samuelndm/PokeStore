@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import * as S from "./styles";
 
-const Modal = ({ openModal, closeModal, size, children }) => {
+const Modal = ({ openModal, closeModal, children, size }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
@@ -38,8 +38,8 @@ const Modal = ({ openModal, closeModal, size, children }) => {
 Modal.propTypes = {
   openModal: PropTypes.bool,
   closeModal: PropTypes.func.isRequired,
-  size: PropTypes.oneOf(["lg", "md", "sm"]),
-  children: PropTypes.element,
+  children: PropTypes.element.isRequired,
+  size: PropTypes.string,
 };
 
 export default Modal;

@@ -18,17 +18,32 @@ export const getPokemonTypeByName = (name) => {
 export const handlePokemonsPagination = (
   typeList,
   currentPage,
-  itemsPerPage
+  itemsPerPage,
+  searchedPokemon
 ) => {
   const start = itemsPerPage * currentPage;
   const end = start + itemsPerPage;
 
-  const pokemonsEndpointTemp = [];
+  const pokemonsEndpoint = [];
+  const tempTypeList = filterPokemonsByKeyword(typeList, searchedPokemon);
+
   for (let i = start; i < end; i++) {
-    if (typeList?.[i]) {
-      pokemonsEndpointTemp.push(typeList[i].url);
+    if (tempTypeList?.[i]) {
+      pokemonsEndpoint.push(tempTypeList[i].url);
     }
   }
 
-  return pokemonsEndpointTemp;
+  return pokemonsEndpoint;
+};
+
+export const filterPokemonsByKeyword = (pokemons, keyword) => {
+  if (pokemons && keyword) {
+    const normalizedSearched = normalizeString(keyword).trim().toLowerCase();
+
+    return pokemons.filter(({ name }) =>
+      name.toLowerCase().includes(normalizedSearched)
+    );
+  }
+
+  return pokemons;
 };

@@ -12,7 +12,7 @@ const EndPages = ({
     <>
       {prevPages.map(
         (page) =>
-          prevPage !== null && (
+          !!prevPage && (
             <Page
               onClick={(e) => setCurrentPage(prevPage - page)}
               key={`EndPages-${page}`}

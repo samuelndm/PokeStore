@@ -12,7 +12,7 @@ const CurrentPokemonTypeProvider = ({ children }) => {
   useEffect(() => {
     document.documentElement.style.setProperty(
       "--current-type-color",
-      currentPokemonType?.color || "#EAEAEA"
+      currentPokemonType?.color || "#3866B3"
     );
   }, [currentPokemonType]);
 
