@@ -3,7 +3,7 @@ import * as S from "./styles";
 import DefaultMenu from "./DefaultMenu";
 import MobileMenu from "./MobileMenu";
 
-const menu = [{ id: 1, url: "/lista-tipos", title: "Lista de tipos" }];
+const menu = [{ id: 1, url: "/lista-tipos", title: "Todos os tipos" }];
 
 const Menu = () => {
   return (

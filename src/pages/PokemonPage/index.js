@@ -14,12 +14,11 @@ const PokemonPage = ({ match }) => {
     currentPokemonType,
     setCurrentPokemonType,
   } = useCurrentPokemonTypeContext();
-  const [pokemonId] = useState(match?.params?.id);
   const [pokemon, setPokemon] = useState(null);
 
   const loadPokemon = useCallback(async () => {
     try {
-      const { data } = await getPokemonById(pokemonId);
+      const { data } = await getPokemonById(match?.params?.id);
       setPokemon(data);
 
       if (!currentPokemonType) {
@@ -37,7 +36,7 @@ const PokemonPage = ({ match }) => {
     }
 
     // eslint-disable-next-line
-  }, [pokemonId]);
+  }, [match?.params?.id]);
 
   useEffect(() => {
     loadPokemon();
