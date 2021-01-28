@@ -30,5 +30,5 @@ export const Menu = styled.div`
   transform: ${({ isVisible }) =>
     isVisible ? "translateX(0%)" : "translateX(200%)"};
   transition: transform 0.5s ease-in-out;
-  background-color: var(--current-type-color) || "#c8c8c8"};
+  background-color: var(--current-type-color);
 `;

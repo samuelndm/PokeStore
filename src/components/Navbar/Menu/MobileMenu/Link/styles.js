@@ -14,7 +14,7 @@ export const Container = styled.div`
   }
 
   &:hover {
-    border: 2px solid var(--blue-color);
+    opacity: 0.9;
   }
 `;
 

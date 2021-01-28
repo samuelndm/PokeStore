@@ -9,9 +9,8 @@ export const Container = styled.div`
     padding: 10px 20px;
     font-size: 16px;
     font-weight: 600;
-
-    &:hover {
-      color: var(--blue-color);
-    }
+  }
+  &:hover {
+    opacity: 0.9;
   }
 `;

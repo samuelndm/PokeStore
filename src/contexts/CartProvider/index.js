@@ -8,19 +8,23 @@ export const useCartContext = () => useContext(CartContext);
 const CartProvider = ({ children }) => {
   const [cart, setCart] = useState([]);
 
-  const addCartItem = (item) => {
-    if (item) {
-      setCart((cart) => [...cart, item]);
+  const addPokemonToCart = (pokemon) => {
+    if (pokemon) {
+      setCart((cart) => [...cart, pokemon]);
     }
   };
 
-  const removeCartItem = (itemRemoved) => {
-    const newCart = cart.filter((item) => item?.id !== itemRemoved?.id);
+  const removePokemonFromCart = (pokemonRemoved) => {
+    const newCart = cart.filter(
+      (pokemon) => pokemon?.id !== pokemonRemoved?.id
+    );
     setCart(newCart);
   };
 
   return (
-    <CartContext.Provider value={{ cart, addCartItem, removeCartItem }}>
+    <CartContext.Provider
+      value={{ cart, addPokemonToCart, removePokemonFromCart }}
+    >
       {children}
     </CartContext.Provider>
   );
