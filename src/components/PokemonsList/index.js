@@ -44,6 +44,10 @@ const PokemonsList = ({ searchedPokemon }) => {
   }, [loadPokemons, currentPokemonType]);
 
   useEffect(() => {
+    setCurrentPage(0);
+  }, [searchedPokemon]);
+
+  useEffect(() => {
     const pokemonsEndpointTemp = handlePokemonsPagination(
       typeList,
       currentPage,

@@ -12,9 +12,9 @@ const HomePage = () => {
       const urlParams = new URLSearchParams(history.location.search);
       const searchedPokemonParam = urlParams.get("searched_pokemon");
 
-      setSearchedPokemon(searchedPokemonParam);
+      setSearchedPokemon(searchedPokemonParam || "");
     }
-  }, [history.location.search]);
+  }, [history.location]);
 
   return (
     <GS.PageContainer>

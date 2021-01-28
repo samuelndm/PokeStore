@@ -2,10 +2,10 @@ import React from "react";
 import PropTypes from "prop-types";
 import { useHistory } from "react-router-dom";
 import * as S from "./styles";
-import * as UI from "../../../../../UIComponents";
 
 const Title = ({ title, pokemonId }) => {
   const history = useHistory();
+
   const handleClick = (event) => {
     history.push(`/pokemon/${pokemonId}`);
   };

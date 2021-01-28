@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 import { getPokemonTypeByName } from "../utils/PokemonListUtil";
-import { POKEMON_TYPES } from "../utils/constants";
 import { useCurrentPokemonTypeContext } from "../contexts";
 import * as P from "./";
 
