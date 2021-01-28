@@ -17,4 +17,8 @@ export const Container = styled.div`
     width: 100%;
     margin: 30px 0;
   }
+
+  @media screen and (max-width: 350px) {
+    padding: 10px 2px;
+  }
 `;

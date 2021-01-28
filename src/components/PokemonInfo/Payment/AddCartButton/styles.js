@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const Container = styled.button`
   padding: 14px 10px;
   width: 100%;
-  max-width: 300px;
+  max-width: 400px;
 
   display: flex;
   align-items: center;

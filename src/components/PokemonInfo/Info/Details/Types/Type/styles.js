@@ -13,6 +13,10 @@ export const Container = styled.div`
   &:hover {
     opacity: 0.9;
   }
+
+  @media screen and (max-width: 575px) {
+    margin: 10px 0;
+  }
 `;
 
 export const Name = styled.p`

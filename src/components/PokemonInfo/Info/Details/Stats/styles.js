@@ -19,7 +19,7 @@ export const Divisor = styled.div`
   transform: rotate(-90deg);
 
   @media screen and (max-width: 350px) {
-    padding: 0 20px;
+    padding: 0 5px;
   }
 `;
 
@@ -50,6 +50,6 @@ export const StatsContent = styled.p`
   color: #2e3a59;
 
   @media screen and (max-width: 350px) {
-    font-size: 16px;
+    font-size: 14px;
   }
 `;
