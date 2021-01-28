@@ -1,10 +1,12 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { useHistory } from "react-router-dom";
 import { useCartContext, useModalContext } from "../../../../contexts";
 import * as S from "./styles";
 import CompletedBuyModal from "./CompletedBuyModal";
 
 const BuyPokemonsButton = () => {
+  const history = useHistory();
   const { clearCart } = useCartContext();
   const { createModal } = useModalContext();
 
@@ -12,7 +14,8 @@ const BuyPokemonsButton = () => {
     event.preventDefault();
 
     clearCart();
-    createModal({ content: <CompletedBuyModal />, size: "md" });
+    createModal({ content: <CompletedBuyModal /> });
+    history.push("/lista-tipos");
   };
 
   return (

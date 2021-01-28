@@ -8,7 +8,7 @@ export const useModalContext = () => useContext(ModalContext);
 
 const ModalProvider = ({ children }) => {
   const [openModal, setOpenModal] = useState(false);
-  const [size, setSize] = useState("md");
+  const [size, setSize] = useState("");
   const [content, setContent] = useState(null);
 
   const createModal = (modal) => {
