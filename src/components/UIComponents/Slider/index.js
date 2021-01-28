@@ -24,15 +24,17 @@ const NextArrow = (props) => {
 };
 
 const Slider = ({
-  content,
+  children,
   slidesToShow,
+  hasDots,
   responsive,
   CustomPrevArrow,
   CustomNextArrow,
+  CustomDots,
 }) => {
   const settings = {
     arrows: true,
-    dots: false,
+    dots: hasDots,
     infinite: true,
     speed: 500,
     slidesToShow: slidesToShow || 1,
@@ -40,23 +42,25 @@ const Slider = ({
     prevArrow: <PrevArrow CustomPrevArrow={CustomPrevArrow} />,
     nextArrow: <NextArrow CustomNextArrow={CustomNextArrow} />,
     responsive: responsive || [],
-    appendDots: (dots) => <S.Dots>{dots}</S.Dots>,
+    appendDots: (dots) =>
+      CustomDots ? <CustomDots>{dots}</CustomDots> : <S.Dots>{dots}</S.Dots>,
   };
 
-  if (!content || !content.length) return null;
   return (
     <StickSlider {...settings} style={S.SliderStyle}>
-      {content.map((Item) => Item)}
+      {children}
     </StickSlider>
   );
 };
 
 Slider.propTypes = {
-  content: PropTypes.element.isRequired,
+  children: PropTypes.element.isRequired,
   slidesToShow: PropTypes.number,
+  hasDots: PropTypes.bool,
   responsive: PropTypes.array,
   CustomPrevArrow: PropTypes.element,
   CustomNextArrow: PropTypes.element,
+  CustomDots: PropTypes.element,
 };
 
 export default Slider;

@@ -4,6 +4,7 @@ export const Container = styled.div`
   width: ${({ width }) => width || "auto"};
   & a {
     all: unset;
+    margin: ${({ margin }) => margin || "0"};
     padding: ${({ padding }) => padding || "0"};
     width: ${({ width }) => width || "auto"};
     height: ${({ height }) => height || "auto"};
@@ -26,7 +27,7 @@ export const Container = styled.div`
     cursor: pointer;
 
     &:hover {
-      color: ${({ colorOnHover }) => colorOnHover || "#000"};
+      ${({ colorOnHover }) => colorOnHover && `color: ${colorOnHover}`};
     }
   }
 `;

@@ -13,6 +13,7 @@ const Pagination = ({
   currentPage,
   setCurrentPage,
   totalItems,
+  color,
 }) => {
   const [pages, setPages] = useState([]);
 
@@ -26,7 +27,7 @@ const Pagination = ({
 
   if (pages.length < 2) return null;
   return (
-    <S.Container>
+    <S.Container color={color}>
       <FirstPage setCurrentPage={setCurrentPage} />
       <PrevPage setCurrentPage={setCurrentPage} />
 
@@ -47,6 +48,7 @@ Pagination.propTypes = {
   currentPage: PropTypes.number.isRequired,
   setCurrentPage: PropTypes.func.isRequired,
   totalItems: PropTypes.number.isRequired,
+  color: PropTypes.string,
 };
 
 export default Pagination;

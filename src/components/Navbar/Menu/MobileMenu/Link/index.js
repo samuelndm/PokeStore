@@ -12,11 +12,6 @@ const Link = ({ link, setHasClicked }) => {
         target={link.target}
         title={link.title}
         childrenPosition='left'
-        color='var(--blue-color)'
-        colorOnHover='var(--blue-color)'
-        padding='15px 20px'
-        fontSize='14px'
-        fontWeight='700'
         setHasClicked={setHasClicked}
       />
     </S.Container>

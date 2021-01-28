@@ -25,7 +25,7 @@ const MobileMenu = ({ menu }) => {
         onClick={(e) => setIsVisible((prev) => !prev)}
       />
 
-      <S.Menu isVisible={isVisible} backgroundColor={currentPokemonType.color}>
+      <S.Menu isVisible={isVisible}>
         {menu.map((link) => (
           <Link
             link={link}

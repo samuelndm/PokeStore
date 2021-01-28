@@ -1,13 +1,13 @@
 import React from "react";
 import PropTypes from "prop-types";
 import * as S from "./styles";
-import * as Cards from "../Cards";
+import * as Card from "../Cards";
 
 const TypesList = ({ types }) => {
   return (
     <S.Container>
       {types?.map((type) => (
-        <Cards.Type type={type} key={`cards.type-${type.id}`} />
+        <Card.Type type={type} key={`cards.type-${type.id}`} />
       ))}
     </S.Container>
   );

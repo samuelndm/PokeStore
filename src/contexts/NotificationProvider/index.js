@@ -1,5 +1,7 @@
 import React, { createContext, useContext, useRef } from "react";
+import PropTypes from "prop-types";
 import { SnackbarProvider } from "notistack";
+import * as S from "./styles";
 
 export const NotificationContext = createContext();
 
@@ -10,20 +12,41 @@ const NotificationProvider = ({ children }) => {
   const TIME_DEFAULT = 5000;
   const NOTIFICATION_TYPES = {
     DEFAULT: "default",
-    SUCCESS: "success",
-    ERROR: "error",
-    WARNING: "warning",
-    INFOs: "info",
+    SUCCESS: "success", // This is a success message!
+    ERROR: "error", // This is an error message!
+    WARNING: "warning", // This is a warning message!
+    INFOs: "info", // This is an information message!
+  };
+
+  const actionDefault = (key) => {
+    return (
+      <S.CloseSpan
+        onClick={(e) => {
+          closeNotification(key);
+        }}
+      >
+        &#10006;
+      </S.CloseSpan>
+    );
   };
 
   const createNotification = (notification) => {
-    const { type, message, time, vertical, horizontal, persist } = notification;
+    const {
+      type,
+      message,
+      time,
+      vertical,
+      horizontal,
+      persist,
+      action,
+    } = notification;
 
     return snackbarProviderRef.current.enqueueSnackbar(message, {
       variant: type || NOTIFICATION_TYPES.DEFAULT,
       autoHideDuration: time || TIME_DEFAULT,
       persist: persist || false,
-      preventDuplicate: true,
+      preventDuplicate: false,
+      action: action || actionDefault,
 
       anchorOrigin: {
         vertical: vertical || "bottom",
@@ -45,6 +68,10 @@ const NotificationProvider = ({ children }) => {
       </NotificationContext.Provider>
     </SnackbarProvider>
   );
+};
+
+NotificationProvider.propTypes = {
+  children: PropTypes.element,
 };
 
 export default NotificationProvider;

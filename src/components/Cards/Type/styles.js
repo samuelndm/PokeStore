@@ -11,7 +11,7 @@ export const Container = styled.div`
   align-items: flex-start;
   justify-content: center;
 
-  border-radius: 16px;
+  border-radius: 6px;
   box-shadow: 0 2px 13px -8px #646262;
   transition: box-shadow 400ms ease, transform 400ms ease;
   cursor: pointer;
@@ -25,7 +25,9 @@ export const Container = styled.div`
 export const Header = styled.div`
   width: 100%;
   height: 80px;
-  border-radius: 16px 16px 0 0;
+  border-radius: 0;
+  border-top-left-radius: inherit;
+  border-top-right-radius: inherit;
   background-color: ${({ backgroundColor }) => backgroundColor};
 `;
 
@@ -52,11 +54,14 @@ export const Body = styled.div`
   align-items: center;
   justify-content: center;
   background-color: #fff;
-  border-radius: 0 0 16px 16px;
+  border-radius: 0;
+  border-bottom-left-radius: inherit;
+  border-bottom-right-radius: inherit;
 `;
 
 export const Name = styled.h2`
   font-family: "Sigmar One", sans-serif;
   color: #333;
   font-weight: 400;
+  text-align: center;
 `;

@@ -21,7 +21,43 @@ export const POKEMON_TYPES = {
   SHADOW: "shadow",
 };
 
+export const POKEMON_STATS = {
+  HP: "hp",
+  ATTACK: "attack",
+  DEFENSE: "defense",
+  SPECIAL_ATTACK: "special-attack",
+  SPECIAL_DEFENSE: "special-defense",
+  SPEED: "speed",
+};
+
 export const POKEMON_TYPES_LIST = [
+  {
+    id: 10,
+    name: { en_us: "fire", pt_br: "Fogo" },
+    color: "#CF2C03",
+    image: {
+      url:
+        "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/4.png",
+    },
+  },
+  {
+    id: 11,
+    name: { en_us: "water", pt_br: "Água" },
+    color: "#3B9BF1",
+    image: {
+      url:
+        "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/7.png",
+    },
+  },
+  {
+    id: 12,
+    name: { en_us: "grass", pt_br: "Planta" },
+    color: "#67AF32",
+    image: {
+      url:
+        "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png",
+    },
+  },
   {
     id: 1,
     name: { en_us: "normal", pt_br: "Normal" },
@@ -103,33 +139,7 @@ export const POKEMON_TYPES_LIST = [
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/81.png",
     },
   },
-  {
-    id: 10,
-    name: { en_us: "fire", pt_br: "Fogo" },
-    color: "#CF2C03",
-    image: {
-      url:
-        "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/4.png",
-    },
-  },
-  {
-    id: 11,
-    name: { en_us: "water", pt_br: "Água" },
-    color: "#3B9BF1",
-    image: {
-      url:
-        "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/7.png",
-    },
-  },
-  {
-    id: 12,
-    name: { en_us: "grass", pt_br: "Planta" },
-    color: "#67AF32",
-    image: {
-      url:
-        "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png",
-    },
-  },
+
   {
     id: 13,
     name: { en_us: "electric", pt_br: "Elétrico" },
@@ -187,12 +197,3 @@ export const POKEMON_TYPES_LIST = [
   // { id: 10001, name: { pt_br: "Desconhecido" }, color: "#000" },
   // { id: 10002, name: { pt_br: "Sombrio" }, color: "#2E3053" },
 ];
-
-export const POKEMON_STATS = {
-  HP: "hp",
-  ATTACK: "attack",
-  DEFENSE: "defense",
-  SPECIAL_ATTACK: "special-attack",
-  SPECIAL_DEFENSE: "special-defense",
-  SPEED: "speed",
-};

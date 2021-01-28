@@ -69,13 +69,13 @@ export const Dots = styled.ul`
 
   & li button:before {
     color: #ffffff;
-    color: var(--primary-color);
+    color: var(--blue-color);
     font-size: 13px;
   }
 
   & li.slick-active button:before {
     opacity: 1;
-    color: var(--primary-color);
+    color: var(--blue-color);
     font-size: 13px;
   }
 

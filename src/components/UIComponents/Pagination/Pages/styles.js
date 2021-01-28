@@ -8,10 +8,12 @@ export const Page = styled.div`
   font-size: 15px;
   line-height: inherit;
   background-color: ${({ isActive }) =>
-    isActive ? "var(--primary-color)" : "transparent"};
+    isActive ? "var(--pagination-color)" : "transparent"};
   border: 0;
   border-radius: 3px;
   text-decoration: none;
+  text-shadow: ${({ isActive }) =>
+    isActive ? "1px 1px 1px rgb(190, 190, 190)" : "none"};
   cursor: pointer;
 
   }

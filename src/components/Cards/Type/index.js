@@ -1,31 +1,26 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { useCurrentPokemonTypeContext } from "../../../contexts";
 import placeholder from "../../../assets/images/placeholder.jpg";
 import * as S from "./styles";
+import * as UI from "../../UIComponents";
 
 const Type = ({ type }) => {
-  const { setCurrentPokemonType } = useCurrentPokemonTypeContext();
-
-  const handleClick = (event) => {
-    event.preventDefault();
-    setCurrentPokemonType(type);
-  };
-
   return (
-    <S.Container onClick={(e) => handleClick(e)}>
-      <S.Header backgroundColor={type?.color} />
+    <UI.LinkHandler url={`/${type?.name?.pt_br?.toLowerCase()}`}>
+      <S.Container>
+        <S.Header backgroundColor={type?.color} />
 
-      <S.Image
-        color={type?.color}
-        src={type?.image?.url || placeholder}
-        alt='imagem de um pokemon'
-      />
+        <S.Image
+          color={type?.color}
+          src={type?.image?.url || placeholder}
+          alt='imagem de um pokemon'
+        />
 
-      <S.Body>
-        <S.Name>{type?.name?.pt_br || ""}</S.Name>
-      </S.Body>
-    </S.Container>
+        <S.Body>
+          <S.Name>{type?.name?.pt_br || ""}</S.Name>
+        </S.Body>
+      </S.Container>
+    </UI.LinkHandler>
   );
 };
 

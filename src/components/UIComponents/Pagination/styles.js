@@ -7,6 +7,7 @@ export const Container = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  --pagination-color: ${({ color }) => color || "#31217C"};
 `;
 
 export const Icon = styled.i`

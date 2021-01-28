@@ -7,16 +7,7 @@ const Link = ({ link }) => {
   if (!link) return null;
   return (
     <S.Container>
-      <UI.LinkHandler
-        url={link.url}
-        target={link.target}
-        title={link.title}
-        color='#fff'
-        colorOnHover='var(--yellow-color)'
-        padding='20px'
-        fontSize='16px'
-        fontWeight='600'
-      />
+      <UI.LinkHandler url={link.url} target={link.target} title={link.title} />
     </S.Container>
   );
 };

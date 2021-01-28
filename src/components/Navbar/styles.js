@@ -12,7 +12,7 @@ export const Container = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: ${({ backgroundColor }) => backgroundColor || "#fff"};
+  background-color: ${"var(--current-type-color)" || "#333"};
   box-shadow: 3px 3px 14px -9px rgba(0, 0, 0, 0.51);
 `;
 

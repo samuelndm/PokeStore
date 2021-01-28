@@ -1,5 +1,5 @@
-import React, { createContext, useContext, useState } from "react";
-import { POKEMON_TYPES, POKEMON_TYPES_LIST } from "../../utils/constants";
+import React, { createContext, useContext, useEffect, useState } from "react";
+import PropTypes from "prop-types";
 
 const CurrentPokemonTypeContext = createContext();
 
@@ -7,10 +7,14 @@ export const useCurrentPokemonTypeContext = () =>
   useContext(CurrentPokemonTypeContext);
 
 const CurrentPokemonTypeProvider = ({ children }) => {
-  const DEFAULT_TYPE = POKEMON_TYPES.GRASS;
-  const [currentPokemonType, setCurrentPokemonType] = useState(
-    POKEMON_TYPES_LIST[0]
-  );
+  const [currentPokemonType, setCurrentPokemonType] = useState({});
+
+  useEffect(() => {
+    document.documentElement.style.setProperty(
+      "--current-type-color",
+      currentPokemonType?.color || "#EAEAEA"
+    );
+  }, [currentPokemonType]);
 
   return (
     <CurrentPokemonTypeContext.Provider
@@ -19,6 +23,10 @@ const CurrentPokemonTypeProvider = ({ children }) => {
       {children}
     </CurrentPokemonTypeContext.Provider>
   );
+};
+
+CurrentPokemonTypeProvider.propTypes = {
+  children: PropTypes.element,
 };
 
 export default CurrentPokemonTypeProvider;

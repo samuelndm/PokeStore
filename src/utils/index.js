@@ -39,3 +39,18 @@ export const createArrayOfGivenNumber = (number, reverse) => {
   }
   return [];
 };
+
+export const normalizeString = (string) => {
+  let newString = "";
+  if (string) {
+    newString = string.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+  }
+  return newString;
+};
+
+export const formatCurrency = (value) => {
+  return new Intl.NumberFormat("pt-BR", {
+    style: "currency",
+    currency: "BRL",
+  }).format(value);
+};

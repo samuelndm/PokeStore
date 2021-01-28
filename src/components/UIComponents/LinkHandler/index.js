@@ -12,12 +12,10 @@ const LinkHandler = ({
   childrenPosition,
   color,
   colorOnHover,
+  margin,
   padding,
   width,
   height,
-  display,
-  fontSize,
-  fontWeight,
   setHasClicked,
 }) => {
   const [urlLink] = useState(url || "#");
@@ -29,12 +27,10 @@ const LinkHandler = ({
       childrenPosition={childrenPosition}
       color={color}
       colorOnHover={colorOnHover}
+      margin={margin}
       padding={padding}
       width={width}
       height={height}
-      display={display}
-      fontSize={fontSize}
-      fontWeight={fontWeight}
     >
       {isExternalUrl(url) ? (
         <S.LinkAnchor href={urlLink} target={targetLink}>
@@ -58,19 +54,17 @@ const LinkHandler = ({
 };
 
 LinkHandler.propTypes = {
-  url: PropTypes.string.isRequired,
+  url: PropTypes.string,
   target: PropTypes.string,
   title: PropTypes.string,
-  children: PropTypes.element.isRequired,
+  children: PropTypes.element,
   childrenPosition: PropTypes.string,
   color: PropTypes.string,
   colorOnHover: PropTypes.string,
+  margin: PropTypes.string,
   padding: PropTypes.string,
   width: PropTypes.string,
   height: PropTypes.string,
-  display: PropTypes.string,
-  fontSize: PropTypes.string,
-  fontWeight: PropTypes.string,
   setHasClicked: PropTypes.func,
 };
 
