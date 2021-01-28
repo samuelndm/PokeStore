@@ -1,4 +1,4 @@
-## This is a solution using ReactJS to a frontend challenge
+## This is a Pokémon shop application using ReactJS
 
 Live Demo: https://samuelndm.github.io/poke-shop 
 
