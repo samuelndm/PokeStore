@@ -31,6 +31,7 @@ export const CustomPrevArrow = styled.div`
 
   &:before {
     color: var(--blue-color);
+    color: var(--current-type-color);
     font-size: 30px;
     font-family: "Font Awesome 5 Free";
     font-weight: 600;
@@ -38,12 +39,8 @@ export const CustomPrevArrow = styled.div`
     opacity: 1;
   }
 
-  @media screen and (max-width: 1050px) {
-    left: -1%;
-  }
-
   @media screen and (max-width: 575px) {
-    left: -5%;
+    left: -10px;
   }
 `;
 
@@ -59,6 +56,7 @@ export const CustomNextArrow = styled.div`
 
   &:before {
     color: var(--blue-color);
+    color: var(--current-type-color);
     font-size: 30px;
     font-family: "Font Awesome 5 Free";
     font-weight: 700;
@@ -66,12 +64,7 @@ export const CustomNextArrow = styled.div`
     opacity: 1;
   }
 
-  @media screen and (max-width: 1050px) {
-    right: -1%;
-  }
-
   @media screen and (max-width: 575px) {
-    right: -10%;
-    transform: translate(-27px, -25px);
+    right: -10px;
   }
 `;

@@ -9,9 +9,10 @@ const Routes = () => {
       <C.Navbar />
 
       <Switch>
-        <Route exact path='/' component={P.BasePage} />
+        <Route exact path='/' component={P.TypesListPage} />
         <Route path='/lista-tipos' component={P.TypesListPage} />
         <Route path='/pokemon/:id' component={P.PokemonPage} />
+        <Route path='/carrinho' component={P.CartPage} />
         <Route path='/:slug' component={P.BasePage} />
       </Switch>
     </Router>

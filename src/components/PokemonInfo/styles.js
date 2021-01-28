@@ -9,4 +9,8 @@ export const Container = styled(ResponsiveContainer)`
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
+
+  @media screen and (max-width: 575px) {
+    margin: 10px auto 0;
+  }
 `;

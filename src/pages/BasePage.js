@@ -7,7 +7,6 @@ import * as P from "./";
 
 const SlugPage = ({ match }) => {
   const history = useHistory();
-  const TYPE_DEFAULT = POKEMON_TYPES.FIRE;
   const [slug] = useState(match?.params?.slug);
   const {
     currentPokemonType,
@@ -21,12 +20,7 @@ const SlugPage = ({ match }) => {
       if (newType) {
         setCurrentPokemonType(newType);
       } else {
-        const typeName = currentPokemonType?.name?.pt_br || TYPE_DEFAULT;
-        const type = getPokemonTypeByName(typeName);
-
-        setCurrentPokemonType(type);
-
-        history.push(`/${typeName.toLowerCase()}`);
+        history.push("/lista-tipos");
       }
     };
 

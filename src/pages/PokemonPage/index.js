@@ -10,7 +10,10 @@ import * as C from "../../components";
 
 const PokemonPage = ({ match }) => {
   const { createNotification, NOTIFICATION_TYPES } = useNotificationContext();
-  const { setCurrentPokemonType } = useCurrentPokemonTypeContext();
+  const {
+    currentPokemonType,
+    setCurrentPokemonType,
+  } = useCurrentPokemonTypeContext();
   const [pokemonId] = useState(match?.params?.id);
   const [pokemon, setPokemon] = useState(null);
 
@@ -19,12 +22,23 @@ const PokemonPage = ({ match }) => {
       const { data } = await getPokemonById(pokemonId);
       setPokemon(data);
 
-      const pokemonType = getPokemonTypeByName(data?.types?.[0]?.type?.name);
+      const pokemonType =
+        currentPokemonType ||
+        getPokemonTypeByName(data?.types?.[0]?.type?.name);
+
       setCurrentPokemonType(pokemonType);
     } catch (err) {
       console.error(err);
+
+      createNotification({
+        type: NOTIFICATION_TYPES.ERROR,
+        message:
+          "Ocorreu um erro ao buscar o Pokémon, tente novamente mais tarde",
+      });
     }
-  }, [pokemonId, setCurrentPokemonType]);
+
+    // eslint-disable-next-line
+  }, [pokemonId]);
 
   useEffect(() => {
     setCurrentPokemonType({});

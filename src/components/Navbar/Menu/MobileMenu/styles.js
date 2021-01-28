@@ -16,7 +16,7 @@ export const Icon = styled.i`
     isVisible ? "var(--yellow-color)" : "transparent"};
   cursor: pointer;
   border: ${({ isVisible }) =>
-    isVisible ? "1px solid var(--blue-color)" : "none"};
+    isVisible ? "2px solid var(--blue-color)" : "none"};
   border-radius: 50%;
 `;
 

@@ -15,7 +15,7 @@ const NotificationProvider = ({ children }) => {
     SUCCESS: "success", // This is a success message!
     ERROR: "error", // This is an error message!
     WARNING: "warning", // This is a warning message!
-    INFOs: "info", // This is an information message!
+    INFO: "info", // This is an information message!
   };
 
   const actionDefault = (key) => {

@@ -7,7 +7,7 @@ import * as S from "./styles";
 const Price = ({ pokemon }) => {
   return (
     <S.Container>
-      <S.Value>{formatCurrency(handlePokemonPrice(pokemon?.stats))}</S.Value>
+      <S.Value>{formatCurrency(handlePokemonPrice(pokemon))}</S.Value>
 
       <S.Span>
         em até 12x sem juros no <S.Strong>Pokecard</S.Strong>

@@ -35,11 +35,11 @@ export const handlePokemonStats = (stats, statsType) => {
   return {};
 };
 
-export const handlePokemonPrice = (stats) => {
+export const handlePokemonPrice = (pokemon) => {
   let price = 0;
 
-  if (stats) {
-    stats.forEach(({ base_stat }) => {
+  if (pokemon?.stats) {
+    pokemon.stats.forEach(({ base_stat }) => {
       if (!Number.isNaN(base_stat)) {
         price += base_stat;
       }

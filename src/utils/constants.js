@@ -161,7 +161,7 @@ export const POKEMON_TYPES_LIST = [
   {
     id: 15,
     name: { en_us: "ice", pt_br: "Gelo" },
-    color: "#B4EDF8",
+    color: "#8de4f5",
     image: {
       url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/87.png",

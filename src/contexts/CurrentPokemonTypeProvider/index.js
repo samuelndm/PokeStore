@@ -7,7 +7,7 @@ export const useCurrentPokemonTypeContext = () =>
   useContext(CurrentPokemonTypeContext);
 
 const CurrentPokemonTypeProvider = ({ children }) => {
-  const [currentPokemonType, setCurrentPokemonType] = useState({});
+  const [currentPokemonType, setCurrentPokemonType] = useState(null);
 
   useEffect(() => {
     document.documentElement.style.setProperty(
