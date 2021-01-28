@@ -18,6 +18,6 @@ export const Image = styled.img`
   }
 
   @media screen and (max-width: 575px) {
-    max-width: 100px;
+    max-width: 40px;
   }
 `;

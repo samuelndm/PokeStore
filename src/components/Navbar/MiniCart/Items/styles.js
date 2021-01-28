@@ -10,14 +10,13 @@ export const Container = styled.div`
   display: none;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: space-between;
   background-color: #fff;
   border-radius: 6px;
   box-shadow: 0 2px 13px -8px #646262;
 
-  @media screen and (max-width: 991px) {
-    padding: 0;
-    width: 100%;
-    min-height: 0;
+  @media screen and (max-width: 575px) {
+    left: 0;
+    left: -200px;
   }
 `;

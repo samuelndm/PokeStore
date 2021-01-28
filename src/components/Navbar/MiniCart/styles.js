@@ -18,6 +18,12 @@ export const Container = styled.div`
       display: flex;
     }
   }
+
+  @media screen and (max-width: 575px) {
+    position: fixed;
+    top: calc(var(--navbar-height) + 20px);
+    right: 10px;
+  }
 `;
 
 export const Icon = styled.i`
@@ -28,10 +34,19 @@ export const Icon = styled.i`
   &:hover {
     opacity: 0.9;
   }
+
+  @media screen and (max-width: 575px) {
+    color: var(--blue-color);
+    font-size: 30px;
+  }
 `;
 
 export const Quantity = styled.span`
   font-family: arial;
   color: #fff;
   font-size: 16px;
+
+  @media screen and (max-width: 575px) {
+    color: var(--blue-color);
+  }
 `;
