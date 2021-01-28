@@ -23,7 +23,9 @@ const SlugPage = ({ match }) => {
       }
     };
 
-    handlePokemonType(slug);
+    if (!currentPokemonType) {
+      handlePokemonType(slug);
+    }
 
     // eslint-disable-next-line
   }, [history, slug, currentPokemonType, setCurrentPokemonType]);
