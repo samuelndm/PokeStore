@@ -7,8 +7,12 @@ export const Container = styled(ResponsiveContainer)`
   min-height: 65vh;
   display: flex;
   flex-wrap: wrap;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
+
+  @media screen and (max-width: 991px) {
+    margin: 0 auto 0;
+  }
 `;
 
 export const EmptyCart = styled.h1`

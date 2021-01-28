@@ -2,6 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import * as S from "./styles";
 import CartItem from "./CartItem";
+import KeepBuyingButton from "./KeepBuyingButton";
 
 const Items = ({ cart }) => {
   return (
@@ -9,6 +10,8 @@ const Items = ({ cart }) => {
       {cart.map((pokemon) => (
         <CartItem pokemon={pokemon} key={`cartItem-${pokemon.id}`} />
       ))}
+
+      <KeepBuyingButton />
     </S.Container>
   );
 };

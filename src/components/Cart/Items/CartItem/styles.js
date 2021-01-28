@@ -6,6 +6,7 @@ export const Container = styled.div`
   width: 100%;
   height: 102px;
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
   border-bottom: 1px solid ${({ color }) => color || "#333"};
@@ -16,5 +17,12 @@ export const Container = styled.div`
 
   @media screen and (max-width: 991px) {
     width: 100%;
+    padding: 0;
+    height: auto;
+
+    & > * {
+      width: 100% !important;
+      margin: 0 0 10px;
+    }
   }
 `;
