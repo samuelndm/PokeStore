@@ -3,7 +3,6 @@ import { useHistory } from "react-router-dom";
 import { getTypesById } from "../../services/endpoints/type";
 import * as CONTEXT from "../../contexts";
 import * as UTIL from "../../utils/pokemonListUtil";
-import * as PAGINATION_UTIL from "../../utils/paginationUtil";
 import * as S from "./styles";
 import * as GS from "../../assets/styles/GlobalStyles";
 import * as C from "../../components";
