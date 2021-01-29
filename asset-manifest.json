@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/poke-shop/static/css/main.acb94acc.chunk.css",
-    "main.js": "/poke-shop/static/js/main.5533e606.chunk.js",
-    "main.js.map": "/poke-shop/static/js/main.5533e606.chunk.js.map",
+    "main.js": "/poke-shop/static/js/main.3ab14c9e.chunk.js",
+    "main.js.map": "/poke-shop/static/js/main.3ab14c9e.chunk.js.map",
     "runtime-main.js": "/poke-shop/static/js/runtime-main.4cd8d8c0.js",
     "runtime-main.js.map": "/poke-shop/static/js/runtime-main.4cd8d8c0.js.map",
     "static/css/2.353611c5.chunk.css": "/poke-shop/static/css/2.353611c5.chunk.css",
@@ -13,7 +13,7 @@
     "static/css/main.acb94acc.chunk.css.map": "/poke-shop/static/css/main.acb94acc.chunk.css.map",
     "static/js/2.ae3a9df2.chunk.js.LICENSE.txt": "/poke-shop/static/js/2.ae3a9df2.chunk.js.LICENSE.txt",
     "static/media/base.scss": "/poke-shop/static/media/Raleway-ThinItalic.9e9f8b9c.ttf",
-    "static/media/logo2.c7ec816a.png": "/poke-shop/static/media/logo2.c7ec816a.png",
+    "static/media/logo.f8907003.png": "/poke-shop/static/media/logo.f8907003.png",
     "static/media/placeholder.cd8d9dd0.jpg": "/poke-shop/static/media/placeholder.cd8d9dd0.jpg",
     "static/media/pokemon-placeholder.4a57c616.png": "/poke-shop/static/media/pokemon-placeholder.4a57c616.png",
     "static/media/slick-theme.css": "/poke-shop/static/media/slick.c94f7671.ttf"
@@ -23,6 +23,6 @@
     "static/css/2.353611c5.chunk.css",
     "static/js/2.ae3a9df2.chunk.js",
     "static/css/main.acb94acc.chunk.css",
-    "static/js/main.5533e606.chunk.js"
+    "static/js/main.3ab14c9e.chunk.js"
   ]
 }
