@@ -65,19 +65,14 @@ export const CustomNextArrow = styled.div`
 `;
 
 export const Dots = styled.ul`
-  padding: 0 20px;
+  padding: 0 10px;
   width: 100%;
   height: auto;
   position: relative;
   display: flex;
   flex-wrap: wrap;
   align-items: flex-end;
-  justify-content: space-between;
-
-  &:after {
-    content: "";
-    flex: auto;
-  }
+  justify-content: center;
 
   & li {
     margin: 5px;
