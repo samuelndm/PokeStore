@@ -3,6 +3,7 @@ import { ResponsiveContainer } from "../../assets/styles/GlobalStyles";
 
 export const Container = styled(ResponsiveContainer)`
   width: 100%;
+  height: 100%;
   min-height: 70vh;
   display: flex;
   flex-direction: column;
