@@ -10,50 +10,55 @@ import Pages from "./Pages";
 import NextPage from "./NextPage";
 import LastPage from "./LastPage";
 
-const Pagination = ({ itemsPerPage, initialPage, totalItems, color }) => {
+const Pagination = ({
+  itemsPerPage,
+  setItemsPerPage,
+  initialPage,
+  setCurrentPage,
+  totalItems,
+  color,
+}) => {
   const history = useHistory();
   const [perPage, setPerPage] = useState(null);
   const [page, setPage] = useState(null);
   const [pages, setPages] = useState([]);
 
   const handleParams = useCallback(() => {
-    const perPageParam = UTIL.getPerPageParam(history);
-    const isNewPerPageValid = UTIL.isPerPageValid(perPageParam, totalItems);
+    const newPerpage = UTIL.handleCurrentPerPage(
+      history.location.search,
+      itemsPerPage,
+      totalItems
+    );
+    setPerPage(newPerpage);
+    setItemsPerPage && setItemsPerPage(newPerpage);
 
-    if (isNewPerPageValid) {
-      setPerPage(perPageParam);
-    } else {
-      setPerPage(itemsPerPage || 9);
-    }
+    const numberOfPages = UTIL.getNumberOfPages(newPerpage, totalItems);
 
-    const isOnePage = totalItems < perPage;
-    const numberOfPages = isOnePage
-      ? 1
-      : Math.ceil(totalItems / perPage || itemsPerPage);
-
-    const currentPageParam = UTIL.getCurrentPageParam(history);
-    const isCurrentPageParamValid = UTIL.isPageValid(
-      currentPageParam,
+    const newPage = UTIL.handleCurrentPage(
+      history.location.search,
+      initialPage,
+      totalItems,
       numberOfPages
     );
-
-    if (isCurrentPageParamValid) {
-      setPage(currentPageParam);
-    } else {
-      setPage(initialPage || 1);
-    }
-
-    // eslint-disable-next-line
-  }, [history, history.location.search, itemsPerPage, initialPage, totalItems]);
+    setPage(newPage);
+    setCurrentPage && setCurrentPage(newPage);
+  }, [
+    history.location.search,
+    itemsPerPage,
+    setItemsPerPage,
+    initialPage,
+    setCurrentPage,
+    totalItems,
+  ]);
 
   const hadlePagination = useCallback(() => {
-    const isOnePage = totalItems < perPage;
-    const numberOfPages = isOnePage ? 1 : Math.ceil(totalItems / perPage);
+    if (page && perPage && totalItems) {
+      const numberOfPages = UTIL.getNumberOfPages(perPage, totalItems);
+      setPages(createArrayOfGivenNumber(numberOfPages));
 
-    setPages(createArrayOfGivenNumber(numberOfPages));
-
-    UTIL.updatePaginationUrl(history, page, perPage);
-    ScrollToTop();
+      UTIL.updatePaginationUrl(history, page, perPage);
+      ScrollToTop();
+    }
   }, [page, perPage, history, totalItems]);
 
   useEffect(() => {
@@ -82,7 +87,9 @@ const Pagination = ({ itemsPerPage, initialPage, totalItems, color }) => {
 
 Pagination.propTypes = {
   itemsPerPage: PropTypes.number,
+  setItemsPerPage: PropTypes.func,
   initialPage: PropTypes.number,
+  setCurrentPage: PropTypes.func,
   totalItems: PropTypes.number.isRequired,
   color: PropTypes.string,
 };

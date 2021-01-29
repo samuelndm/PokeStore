@@ -1,8 +1,49 @@
 import { updateSearchByKey } from "..";
 import { URL_PARAMS } from "../constants";
 
-export const getPerPageParam = (history) => {
-  const params = new URLSearchParams(history.location.search);
+export const handleCurrentPerPage = (search, itemsPerPage, totalItems) => {
+  const perPageParam = getPerPageParam(search);
+  const isValid = isPerPageValid(perPageParam, totalItems);
+  const isValidWithTotal = isPerPageValid(perPageParam);
+
+  if (isValidWithTotal) {
+    return perPageParam;
+  } else if (isValid && totalItems) {
+    return totalItems;
+  } else {
+    return itemsPerPage || 9;
+  }
+};
+
+export const handleCurrentPage = (
+  search,
+  initialPage,
+  totalItems,
+  numberOfPages
+) => {
+  const PageParam = getPageParam(search);
+  const isValid = isPageValid(PageParam);
+  const isValidWithTotal = isPageValid(PageParam, numberOfPages);
+
+  if (totalItems) {
+    if (isValidWithTotal) {
+      return PageParam;
+    } else if (isValid && PageParam > numberOfPages) {
+      return numberOfPages;
+    } else {
+      return initialPage || 1;
+    }
+  } else {
+    if (isValid) {
+      return PageParam;
+    } else {
+      return initialPage || 1;
+    }
+  }
+};
+
+export const getPerPageParam = (search) => {
+  const params = new URLSearchParams(search);
   const param = params.get(URL_PARAMS.PER_PAGE_KEY);
   const perPage =
     param !== null && param !== undefined ? parseInt(param) : null;
@@ -10,8 +51,8 @@ export const getPerPageParam = (history) => {
   return perPage;
 };
 
-export const getCurrentPageParam = (history) => {
-  const params = new URLSearchParams(history.location.search);
+export const getPageParam = (search) => {
+  const params = new URLSearchParams(search);
   const param = params.get(URL_PARAMS.PAGE_KEY);
   const page = param !== null && param !== undefined ? parseInt(param) : null;
 
@@ -19,15 +60,25 @@ export const getCurrentPageParam = (history) => {
 };
 
 export const isPerPageValid = (param, totalItems) => {
-  return (
-    param !== null && param !== undefined && param > 0 && param <= totalItems
-  );
+  if (totalItems) {
+    return (
+      param !== null && param !== undefined && param > 0 && param <= totalItems
+    );
+  }
+  return param !== null && param !== undefined && param > 0;
 };
 
 export const isPageValid = (param, numberOfPages) => {
-  return (
-    param !== null && param !== undefined && param > 0 && param <= numberOfPages
-  );
+  if (numberOfPages) {
+    return (
+      param !== null &&
+      param !== undefined &&
+      param > 0 &&
+      param <= numberOfPages
+    );
+  }
+
+  return param !== null && param !== undefined && param > 0;
 };
 
 export const updatePaginationUrl = (history, pageValue, perPageValue) => {
@@ -58,4 +109,11 @@ export const resetPaginationUrl = (history) => {
     pathname: history.location.pathame,
     search: newParams,
   });
+};
+
+export const getNumberOfPages = (perPage, totalItems) => {
+  const isOnePage = totalItems < perPage;
+  const numberOfPages = isOnePage ? 1 : Math.ceil(totalItems / perPage);
+
+  return numberOfPages;
 };

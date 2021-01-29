@@ -16,6 +16,8 @@ const PokemonsListPage = ({ match }) => {
   } = CONTEXT.useNotificationContext();
   const { setCurrentPokemonType } = CONTEXT.useCurrentPokemonTypeContext();
   const history = useHistory();
+  const [itemsPerPage, setItemsPerPage] = useState(12);
+  const [page, setPage] = useState(1);
   const [pokemonsFiltered, setPokemonsFiltered] = useState([]);
   const [pokemonsList, setPokemonsList] = useState([]);
 
@@ -44,18 +46,28 @@ const PokemonsListPage = ({ match }) => {
   useEffect(() => {
     const type = UTIL.getPokemonTypeByName(match.params.slug);
     const searchedPokemon = UTIL.getSearchedPokemonParam(history);
-    const itemsPerPage = PAGINATION_UTIL.getPerPageParam(history);
-    const page = PAGINATION_UTIL.getCurrentPageParam(history) - 1;
+    // const itemsPerPage = PAGINATION_UTIL.getPerPageParam(history);
+    // const page = PAGINATION_UTIL.getCurrentPageParam(history) - 1;
 
     if (type) {
       setCurrentPokemonType(type);
-      loadPokemons(type, searchedPokemon, { itemsPerPage, page });
+      loadPokemons(type, searchedPokemon, {
+        itemsPerPage,
+        page: page - 1,
+      });
     } else {
       history.push("/lista-tipos");
     }
 
     // eslint-disable-next-line
-  }, [match, history, history.location, setCurrentPokemonType]);
+  }, [
+    match,
+    history,
+    history.location,
+    itemsPerPage,
+    page,
+    setCurrentPokemonType,
+  ]);
 
   return UTIL.getSearchedPokemonParam(history) && !pokemonsList.length ? (
     <S.NotFound>Nenhum pokémon foi encontrado</S.NotFound>
@@ -64,8 +76,10 @@ const PokemonsListPage = ({ match }) => {
       <C.PokemonsList pokemons={pokemonsList} />
 
       <UI.Pagination
-        itemsPerPage={12}
-        initialPage={1}
+        itemsPerPage={itemsPerPage}
+        setItemsPerPage={setItemsPerPage}
+        initialPage={page}
+        setCurrentPage={setPage}
         totalItems={pokemonsFiltered.length}
       />
     </GS.PageContainer>
