@@ -16,5 +16,11 @@ export const Page = styled.div`
     isActive ? "1px 1px 1px rgb(190, 190, 190)" : "none"};
   cursor: pointer;
 
+  &:hover {
+    background-color: var(--pagination-color);
+    opacity: 0.8;
+    color: #fff;
+    text-shadow: 1px 1px 1px rgb(190, 190, 190);
+  }
   }
 `;
