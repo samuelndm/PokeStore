@@ -22,11 +22,10 @@ export const Container = styled.div`
   }
 
   @media screen and (max-width: 991px) {
+    z-index: 90;
     position: fixed;
     top: calc(var(--navbar-height) + 20px);
     right: 10px;
-
-    display: ${({ isOnCartPage }) => (isOnCartPage ? "none" : "flex")};
 
     & > .cart-items {
       display: ${({ openItems }) => (openItems ? "flex" : "none")};
@@ -57,4 +56,17 @@ export const Quantity = styled.span`
   @media screen and (max-width: 991px) {
     color: var(--blue-color);
   }
+`;
+
+export const DarkBackground = styled.div`
+  z-index: 80;
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  background-color: #333;
+  opacity: 0.4;
+
+  display: ${({ openItems }) => (openItems ? "flex" : "none")};
 `;
