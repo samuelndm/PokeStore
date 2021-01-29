@@ -1,7 +1,7 @@
 import React from "react";
 import * as S from "./styles";
 import * as UI from "../../UIComponents";
-import logo from "../../../assets/images/logo2.png";
+import logo from "../../../assets/images/logo.png";
 
 const Logo = () => {
   return (

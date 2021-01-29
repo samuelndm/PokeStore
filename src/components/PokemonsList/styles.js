@@ -17,6 +17,6 @@ export const Container = styled(ResponsiveContainer)`
   }
 
   @media screen and (max-width: 586px) {
-    justify-content: space-around;
+    justify-content: center;
   }
 `;
