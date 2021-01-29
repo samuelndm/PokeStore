@@ -7,16 +7,24 @@ export const Container = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  overflow: hidden;
   --pagination-color: ${({ color }) => color || "#31217C"};
 `;
 
 export const Icon = styled.i`
   margin: 0 5px;
-  padding: 10px;
+  padding: 10px 14px;
   cursor: pointer;
+  background-color: transparent;
 
   &:hover {
-    border-radius: 50%;
-    background-color: #f5f5f5;
+    border-radius: 3px;
+    background-color: var(--pagination-color);
+    color: #fff;
+    transition: background-color 2s ease-int-out;
+  }
+
+  @media screen and (max-width: 350px) {
+    padding: 10px;
   }
 `;

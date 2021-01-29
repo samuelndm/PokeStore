@@ -13,7 +13,10 @@ const PokemonsListPage = ({ match }) => {
     createNotification,
     NOTIFICATION_TYPES,
   } = CONTEXT.useNotificationContext();
-  const { setCurrentPokemonType } = CONTEXT.useCurrentPokemonTypeContext();
+  const {
+    currentPokemonType,
+    setCurrentPokemonType,
+  } = CONTEXT.useCurrentPokemonTypeContext();
   const history = useHistory();
   const [itemsPerPage, setItemsPerPage] = useState(12);
   const [page, setPage] = useState(1);
@@ -80,6 +83,7 @@ const PokemonsListPage = ({ match }) => {
         initialPage={page}
         setCurrentPage={setPage}
         totalItems={pokemonsFiltered.length}
+        color={currentPokemonType?.color}
       />
     </GS.PageContainer>
   );
