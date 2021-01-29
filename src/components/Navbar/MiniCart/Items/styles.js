@@ -24,6 +24,10 @@ export const Container = styled.div`
     max-height: 300px;
   }
 
+  @media screen and (max-width: 350px) {
+    left: -170px;
+  }
+
   ::-webkit-scrollbar {
     width: 15px;
   }
