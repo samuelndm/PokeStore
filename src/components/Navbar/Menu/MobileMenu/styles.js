@@ -21,6 +21,7 @@ export const Icon = styled.i`
 `;
 
 export const Menu = styled.div`
+  z-index: 200;
   padding: 10px 20px;
   width: 100%;
   height: 100vh;
