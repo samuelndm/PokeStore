@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
-import { updateSearchByKey } from "../../../utils";
+import { updateUrlParamByKey, removeUrlParamByKey } from "../../../utils";
 import { URL_PARAMS } from "../../../utils/constants";
 import { resetPaginationUrl } from "../../../utils/paginationUtil";
 import {
@@ -23,11 +23,20 @@ const Search = () => {
 
       resetPaginationUrl(history);
 
-      let params = updateSearchByKey(
-        history.location.search,
-        URL_PARAMS.SEARCHED_POKEMON,
-        keyword
-      );
+      let params = "";
+
+      if (keyword) {
+        params = updateUrlParamByKey(
+          history.location.search,
+          URL_PARAMS.SEARCHED_POKEMON,
+          keyword
+        );
+      } else {
+        params = removeUrlParamByKey(
+          history.location.search,
+          URL_PARAMS.SEARCHED_POKEMON
+        );
+      }
 
       history.push(`${url}${params}`);
     } else {

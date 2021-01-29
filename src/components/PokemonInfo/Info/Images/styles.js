@@ -17,6 +17,9 @@ export const Image = styled.img`
   height: auto;
   max-width: 100%;
   max-height: 100%;
+
+
+  }
 `;
 
 export const CustomPrevArrow = styled.div`
@@ -25,8 +28,8 @@ export const CustomPrevArrow = styled.div`
   width: 50px;
   height: 50px;
   position: absolute;
-  top: 100%;
-  left: 0;
+  top: 71%;
+  left: -30px;
   text-align: center;
 
   &:before {
@@ -38,10 +41,6 @@ export const CustomPrevArrow = styled.div`
     content: "\f104";
     opacity: 1;
   }
-
-  @media screen and (max-width: 575px) {
-    left: -10px;
-  }
 `;
 
 export const CustomNextArrow = styled.div`
@@ -50,8 +49,8 @@ export const CustomNextArrow = styled.div`
   width: 50px;
   height: 50px;
   position: absolute;
-  top: 100%;
-  right: 0;
+  top: 71%;
+  right: -30px;
   text-align: center;
 
   &:before {
@@ -63,8 +62,39 @@ export const CustomNextArrow = styled.div`
     content: "\f105";
     opacity: 1;
   }
+`;
 
-  @media screen and (max-width: 575px) {
-    right: -10px;
+export const Dots = styled.ul`
+  padding: 0 20px;
+  width: 100%;
+  height: auto;
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+
+  &:after {
+    content: "";
+    flex: auto;
   }
+
+  & li {
+    margin: 5px;
+    width: 60px;
+    height: 60px;
+    background-color: #e6e6e6c7;
+  }
+
+  & li.slick-active {
+    background-color: var(--current-type-color);
+    opacity: 0.6;
+  }
+`;
+
+export const CustonDots = styled.img`
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  max-height: 100%;
 `;

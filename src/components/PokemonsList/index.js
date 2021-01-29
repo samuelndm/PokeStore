@@ -13,14 +13,12 @@ const PokemonsList = ({ pokemons }) => {
 
   return (
     <S.Container>
-      <S.Pokemons>
-        {pokemonsEndpoint?.map((endpoint) => (
-          <Pokemon
-            pokemonEndpoint={endpoint}
-            key={`pokemon-endpoint-${endpoint}`}
-          />
-        ))}
-      </S.Pokemons>
+      {pokemonsEndpoint?.map((endpoint) => (
+        <Pokemon
+          pokemonEndpoint={endpoint}
+          key={`pokemon-endpoint-${endpoint}`}
+        />
+      ))}
     </S.Container>
   );
 };

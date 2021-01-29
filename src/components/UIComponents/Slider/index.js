@@ -25,14 +25,14 @@ const NextArrow = (props) => {
 
 const Slider = ({
   children,
+  settings,
   slidesToShow,
   hasDots,
   responsive,
   CustomPrevArrow,
   CustomNextArrow,
-  CustomDots,
 }) => {
-  const settings = {
+  let defaultSettings = {
     arrows: true,
     dots: hasDots,
     infinite: true,
@@ -42,12 +42,12 @@ const Slider = ({
     prevArrow: <PrevArrow CustomPrevArrow={CustomPrevArrow} />,
     nextArrow: <NextArrow CustomNextArrow={CustomNextArrow} />,
     responsive: responsive || [],
-    appendDots: (dots) =>
-      CustomDots ? <CustomDots>{dots}</CustomDots> : <S.Dots>{dots}</S.Dots>,
+    appendDots: (dots) => <S.Dots>{dots}</S.Dots>,
+    ...settings,
   };
 
   return (
-    <StickSlider {...settings} style={S.SliderStyle}>
+    <StickSlider {...defaultSettings} style={S.SliderStyle}>
       {children}
     </StickSlider>
   );
@@ -55,12 +55,12 @@ const Slider = ({
 
 Slider.propTypes = {
   children: PropTypes.element.isRequired,
+  settings: PropTypes.object,
   slidesToShow: PropTypes.number,
   hasDots: PropTypes.bool,
   responsive: PropTypes.array,
   CustomPrevArrow: PropTypes.element,
   CustomNextArrow: PropTypes.element,
-  CustomDots: PropTypes.element,
 };
 
 export default Slider;

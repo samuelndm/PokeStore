@@ -26,9 +26,16 @@ const Images = ({ sprites }) => {
             <S.Image src={imagesUrl[0]} alt='imagem do pokémon' />
           ) : (
             <UI.Slider
-              hasDots={true}
               CustomPrevArrow={S.CustomPrevArrow}
               CustomNextArrow={S.CustomNextArrow}
+              settings={{
+                dots: true,
+                // dotsClass: "slick-dots slick-thumb",
+                appendDots: (dots) => <S.Dots>{dots}</S.Dots>,
+                customPaging: (index) => (
+                  <S.CustonDots src={imagesUrl?.[index]} />
+                ),
+              }}
             >
               {imagesUrl?.map((url) => (
                 <S.Image

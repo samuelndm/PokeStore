@@ -1,4 +1,4 @@
-import { updateSearchByKey } from "..";
+import { updateUrlParamByKey } from "..";
 import { URL_PARAMS } from "../constants";
 
 export const handleCurrentPerPage = (search, itemsPerPage, totalItems) => {
@@ -82,13 +82,13 @@ export const isPageValid = (param, numberOfPages) => {
 };
 
 export const updatePaginationUrl = (history, pageValue, perPageValue) => {
-  let newParams = updateSearchByKey(
+  let newParams = updateUrlParamByKey(
     history.location.search,
     URL_PARAMS.PER_PAGE_KEY,
     perPageValue
   );
 
-  newParams = updateSearchByKey(newParams, URL_PARAMS.PAGE_KEY, pageValue);
+  newParams = updateUrlParamByKey(newParams, URL_PARAMS.PAGE_KEY, pageValue);
 
   history?.push({
     pathname: history.location.pathame,
@@ -97,13 +97,13 @@ export const updatePaginationUrl = (history, pageValue, perPageValue) => {
 };
 
 export const resetPaginationUrl = (history) => {
-  let newParams = updateSearchByKey(
+  let newParams = updateUrlParamByKey(
     history.location.search,
     URL_PARAMS.PER_PAGE_KEY,
     12
   );
 
-  newParams = updateSearchByKey(newParams, URL_PARAMS.PAGE_KEY, 1);
+  newParams = updateUrlParamByKey(newParams, URL_PARAMS.PAGE_KEY, 1);
 
   history?.push({
     pathname: history.location.pathame,

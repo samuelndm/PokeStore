@@ -7,7 +7,7 @@ export const Container = styled(ResponsiveContainer)`
   min-height: 425px;
   display: flex;
   flex-wrap: wrap;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
 
   @media screen and (max-width: 575px) {

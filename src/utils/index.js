@@ -69,7 +69,7 @@ export const ScrollToBottom = () => {
   });
 };
 
-export const updateSearchByKey = (search, key, newValue) => {
+export const updateUrlParamByKey = (search, key, newValue) => {
   const params = search?.split("?")?.[1]?.split("&") || [];
   let hasFound = false;
 
@@ -85,6 +85,17 @@ export const updateSearchByKey = (search, key, newValue) => {
   if (!hasFound) {
     newParams.push(`${key}=${newValue}`);
   }
+
+  return `?${newParams?.join("&") || ""}`;
+};
+
+export const removeUrlParamByKey = (search, key) => {
+  const params = search?.split("?")?.[1]?.split("&") || [];
+
+  const newParams = params.filter((param) => {
+    const paramKey = param?.split("=")?.[0];
+    return paramKey !== key;
+  });
 
   return `?${newParams?.join("&") || ""}`;
 };
