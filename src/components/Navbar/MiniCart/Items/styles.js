@@ -17,9 +17,11 @@ export const Container = styled.div`
   border-radius: 6px;
   box-shadow: 0 2px 13px -8px #646262;
 
-  @media screen and (max-width: 575px) {
+  @media screen and (max-width: 991px) {
     left: 0;
     left: -200px;
+
+    max-height: 300px;
   }
 
   ::-webkit-scrollbar {

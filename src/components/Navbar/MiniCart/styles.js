@@ -13,16 +13,24 @@ export const Container = styled.div`
     display: none;
   }
 
-  &:hover {
-    & > .cart-items {
-      display: flex;
+  @media screen and (min-width: 992px) {
+    &:hover {
+      & > .cart-items {
+        display: flex;
+      }
     }
   }
 
-  @media screen and (max-width: 575px) {
+  @media screen and (max-width: 991px) {
     position: fixed;
     top: calc(var(--navbar-height) + 20px);
     right: 10px;
+
+    display: ${({ isOnCartPage }) => (isOnCartPage ? "none" : "flex")};
+
+    & > .cart-items {
+      display: ${({ openItems }) => (openItems ? "flex" : "none")};
+    }
   }
 `;
 
@@ -35,9 +43,9 @@ export const Icon = styled.i`
     opacity: 0.9;
   }
 
-  @media screen and (max-width: 575px) {
+  @media screen and (max-width: 991px) {
     color: var(--blue-color);
-    font-size: 30px;
+    font-size: 32px;
   }
 `;
 
@@ -46,7 +54,7 @@ export const Quantity = styled.span`
   color: #fff;
   font-size: 16px;
 
-  @media screen and (max-width: 575px) {
+  @media screen and (max-width: 991px) {
     color: var(--blue-color);
   }
 `;

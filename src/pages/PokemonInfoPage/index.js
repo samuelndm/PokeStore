@@ -7,6 +7,7 @@ import {
 } from "../../contexts";
 import * as GS from "../../assets/styles/GlobalStyles";
 import * as C from "../../components";
+import { ScrollToTop } from "../../utils";
 
 const PokemonInfoPage = ({ match }) => {
   const { createNotification, NOTIFICATION_TYPES } = useNotificationContext();
@@ -40,6 +41,7 @@ const PokemonInfoPage = ({ match }) => {
 
   useEffect(() => {
     loadPokemon();
+    ScrollToTop();
   }, [loadPokemon]);
 
   return (

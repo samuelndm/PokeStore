@@ -32,7 +32,7 @@ export const Title = styled.span`
   text-align: center;
   font-size: 16px;
 
-  @media screen and (max-width: 575px) {
+  @media screen and (max-width: 991px) {
     font-size: 16px;
   }
 `;
