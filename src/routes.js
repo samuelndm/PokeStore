@@ -14,6 +14,7 @@ const Routes = () => {
         <Route path='/tipo/:slug' component={P.PokemonsListPage} />
         <Route path='/pokemon/:id' component={P.PokemonInfoPage} />
         <Route path='/carrinho' component={P.CartPage} />
+        <Route exact path='*' component={P.NotFoundPage} />
       </Switch>
     </HashRouter>
   );
