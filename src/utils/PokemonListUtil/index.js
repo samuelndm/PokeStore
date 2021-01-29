@@ -15,25 +15,28 @@ export const getPokemonTypeByName = (name) => {
   );
 };
 
-export const handlePokemonsPagination = (
-  typeList,
-  currentPage,
-  itemsPerPage,
-  searchedPokemon
-) => {
-  const start = itemsPerPage * currentPage;
+export const getSearchedPokemonParam = (history) => {
+  const urlParams = new URLSearchParams(history?.location?.search);
+  const searchedPokemonParam = urlParams.get("searched_pokemon");
+
+  return searchedPokemonParam || "";
+};
+
+export const handlePokemonsPagination = (pokemons, pagination) => {
+  const { itemsPerPage, page } = pagination;
+
+  const start = itemsPerPage * page;
   const end = start + itemsPerPage;
 
-  const pokemonsEndpoint = [];
-  const tempTypeList = filterPokemonsByKeyword(typeList, searchedPokemon);
+  const paginatedPokemons = [];
 
   for (let i = start; i < end; i++) {
-    if (tempTypeList?.[i]) {
-      pokemonsEndpoint.push(tempTypeList[i].url);
+    if (pokemons?.[i]) {
+      paginatedPokemons.push(pokemons[i]);
     }
   }
 
-  return pokemonsEndpoint;
+  return paginatedPokemons;
 };
 
 export const filterPokemonsByKeyword = (pokemons, keyword) => {

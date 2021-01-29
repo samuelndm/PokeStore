@@ -6,7 +6,7 @@ import * as UI from "../../UIComponents";
 
 const Type = ({ type }) => {
   return (
-    <UI.LinkHandler url={`/${type?.name?.pt_br?.toLowerCase()}`}>
+    <UI.LinkHandler url={`/tipo/${type?.name?.pt_br?.toLowerCase()}`}>
       <S.Container>
         <S.Header backgroundColor={type?.color} />
 

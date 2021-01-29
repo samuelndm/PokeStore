@@ -4,6 +4,7 @@ import {
   useCurrentPokemonTypeContext,
   useNotificationContext,
 } from "../../../contexts";
+import { updateSearchByKey } from "../../../utils";
 import * as S from "./styles";
 
 const Search = () => {
@@ -16,9 +17,14 @@ const Search = () => {
     event.preventDefault();
 
     if (currentPokemonType) {
-      history.push(
-        `/${currentPokemonType.name.pt_br}?searched_pokemon=${keyword}`
+      const url = `/tipo/${currentPokemonType.name.en_us}`;
+      const params = updateSearchByKey(
+        history.location.search,
+        "searched_pokemon",
+        keyword
       );
+
+      history.push(`${url}${params}`);
     } else {
       createNotification({
         type: NOTIFICATION_TYPES.WARNING,

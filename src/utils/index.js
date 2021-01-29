@@ -54,3 +54,37 @@ export const formatCurrency = (value) => {
     currency: "BRL",
   }).format(value);
 };
+
+export const ScrollToTop = () => {
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth",
+  });
+};
+
+export const ScrollToBottom = () => {
+  window.scrollTo({
+    top: document.body.scrollHeight || document.documentElement.ScrollHeight,
+    behavior: "smooth",
+  });
+};
+
+export const updateSearchByKey = (search, key, newValue) => {
+  const params = search?.split("?")?.[1]?.split("&") || [];
+  let hasFound = false;
+
+  const newParams = params.map((param) => {
+    const paramKey = param?.split("=")?.[0];
+    if (paramKey === key) {
+      hasFound = true;
+      return `${key}=${newValue}`;
+    }
+    return param;
+  });
+
+  if (!hasFound) {
+    newParams.push(`${key}=${newValue}`);
+  }
+
+  return `?${newParams?.join("&") || ""}`;
+};

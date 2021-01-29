@@ -10,7 +10,7 @@ const KeepBuyingButton = () => {
   const handleClick = (event) => {
     event.preventDefault();
     if (currentPokemonType) {
-      history.push(`/${currentPokemonType.name.pt_br}`);
+      history.push(`/tipo/${currentPokemonType.name.en_us}`);
     } else {
       history.push(`/lista-tipos`);
     }

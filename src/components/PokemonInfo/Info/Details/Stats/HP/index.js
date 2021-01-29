@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import PropTypes from "prop-types";
-import { handlePokemonStats } from "../../../../../../utils/PokemonInfoUtil";
+import { handlePokemonStats } from "../../../../../../utils/pokemonInfoUtil";
 import { POKEMON_STATS } from "../../../../../../utils/constants";
 import * as S from "../styles";
 

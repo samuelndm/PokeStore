@@ -1,4 +1,4 @@
-import { handlePokemonPrice } from "../PokemonInfoUtil";
+import { handlePokemonPrice } from "../pokemonInfoUtil";
 const storageKey = process.env.REACT_APP_LOCAL_STORAGE_KEY;
 
 export const getCartStorage = () => {

@@ -1,29 +1,23 @@
 import React from "react";
 import { Page } from "../../styles";
 
-const EndPages = ({
-  prevPage,
-  prevPages,
-  currentPage,
-  setCurrentPage,
-  selectPage,
-}) => {
+const EndPages = ({ prevPage, prevPages, page, setPage, selectPage }) => {
   return (
     <>
       {prevPages.map(
-        (page) =>
+        (index) =>
           !!prevPage && (
             <Page
-              onClick={(e) => setCurrentPage(prevPage - page)}
-              key={`EndPages-${page}`}
+              onClick={(e) => setPage(prevPage - index)}
+              key={`EndPages-${index}`}
             >
-              {prevPage - page + 1}
+              {prevPage - index}
             </Page>
           )
       )}
 
       <Page onClick={(e) => selectPage(e)}>...</Page>
-      <Page isActive={true}>{currentPage + 1}</Page>
+      <Page isActive={true}>{page}</Page>
     </>
   );
 };

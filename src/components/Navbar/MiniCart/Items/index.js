@@ -12,7 +12,7 @@ const Items = ({ cart, resume }) => {
         <CartItem pokemon={pokemon} key={`cartItem-${pokemon.id}`} />
       ))}
 
-      <Total total={resume.totalPrice} />
+      <Total total={resume?.totalPrice || 0} />
       <ShowCart />
     </S.Container>
   );

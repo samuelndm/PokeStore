@@ -6,25 +6,14 @@ export const Container = styled(ResponsiveContainer)`
   width: 100%;
   min-height: 65vh;
   display: flex;
-  flex-wrap: wrap;
   align-items: flex-start;
-  justify-content: flex-start;
+  justify-content: center;
 `;
 
 export const Pokemons = styled.div`
   min-height: 65vh;
   display: flex;
   flex-wrap: wrap;
-  align-items: flex-start;
-  justify-content: center;
-`;
-
-export const NotFound = styled.h2`
-  margin: auto;
-  width: 100%;
-  min-height: 65vh;
-  display: flex;
   align-items: center;
   justify-content: center;
-  text-align: center;
 `;

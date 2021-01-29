@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import PropTypes from "prop-types";
-import { handleCartResume } from "../../../utils/CartUtil";
+import { handleCartResume } from "../../../utils/cartUtil";
 import * as S from "./styles";
 import Total from "./Total";
 import BuyPokemonsButton from "./BuyPokemonsButton";

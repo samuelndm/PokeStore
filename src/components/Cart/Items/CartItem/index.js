@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import PropTypes from "prop-types";
-import { getPokemonTypeByName } from "../../../../utils/PokemonListUtil";
+import { getPokemonTypeByName } from "../../../../utils/pokemonListUtil";
 import * as S from "./styles";
 import Thumbnail from "./Thumbnail";
 import Title from "./Title";

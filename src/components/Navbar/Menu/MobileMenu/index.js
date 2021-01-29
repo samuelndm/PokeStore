@@ -1,11 +1,9 @@
 import React, { useEffect, useState } from "react";
 import PropTypes from "prop-types";
-import { useCurrentPokemonTypeContext } from "../../../../contexts";
 import * as S from "./styles";
 import Link from "./Link";
 
 const MobileMenu = ({ menu }) => {
-  const { currentPokemonType } = useCurrentPokemonTypeContext();
   const [isVisible, setIsVisible] = useState(false);
   const [hasClicked, setHasClicked] = useState(false);
 

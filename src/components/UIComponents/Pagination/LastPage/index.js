@@ -1,11 +1,11 @@
 import React from "react";
 import { Icon } from "../styles";
 
-const LastPage = ({ setCurrentPage, pagesTotal }) => {
+const LastPage = ({ lastPage, setPage }) => {
   return (
     <Icon
       className='fas fa-angle-double-right'
-      onClick={(e) => setCurrentPage(pagesTotal)}
+      onClick={(e) => setPage(lastPage)}
     />
   );
 };

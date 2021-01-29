@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { formatCurrency } from "../../../../utils";
-import { handlePokemonPrice } from "../../../../utils/PokemonInfoUtil";
+import { handlePokemonPrice } from "../../../../utils/pokemonInfoUtil";
 import * as S from "./styles";
 
 const Price = ({ pokemon }) => {

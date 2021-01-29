@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import PropTypes from "prop-types";
-import { getPokemonSpritesUrl } from "../../../../utils/PokemonInfoUtil";
-import placeholder from "../../../../assets/images/pokemon-placeholder.png";
+import { getPokemonSpritesUrl } from "../../../../utils/pokemonInfoUtil";
 import * as S from "./styles";
 import * as UI from "../../../UIComponents";
 import SkeletonImage from "./SkeletonImage";
@@ -11,7 +10,10 @@ const Images = ({ sprites }) => {
 
   useEffect(() => {
     const urls = getPokemonSpritesUrl(sprites);
-    setImagesUrl(urls);
+
+    setTimeout(() => {
+      setImagesUrl(urls);
+    }, [1000]);
   }, [sprites]);
 
   return (

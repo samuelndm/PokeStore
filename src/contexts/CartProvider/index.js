@@ -1,8 +1,8 @@
 import React, { createContext, useContext, useEffect, useState } from "react";
 import PropTypes from "prop-types";
-import * as CartUtil from "../../utils/CartProviderUtil";
-import { useNotificationContext } from "../NotificationProvider";
+import * as CartUtil from "../../utils/cartProviderUtil";
 import { validatePokemon, validatePokemonId } from "../../utils/validations";
+import { useNotificationContext } from "../NotificationProvider";
 
 const CartContext = createContext();
 

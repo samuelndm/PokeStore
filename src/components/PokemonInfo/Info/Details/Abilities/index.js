@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { concatenateAbilities } from "../../../../../utils/PokemonInfoUtil";
+import { concatenateAbilities } from "../../../../../utils/pokemonInfoUtil";
 import * as S from "./styles";
 import Section from "../Section";
 

@@ -3,16 +3,16 @@ import { createArrayOfGivenNumber } from "../../../../../utils";
 import BeginningPages from "./BeginningPages";
 import EndPages from "./EndPages";
 
-const PagesDots = ({ pages, currentPage, setCurrentPage, limit }) => {
+const PagesDots = ({ page, setPage, pages, limit }) => {
   const [prevPage, setPrevPage] = useState(null);
   const [nextPage, setNextPage] = useState(null);
   const [prevPages, setPrevPages] = useState([]);
   const [nextPages, setnextPages] = useState([]);
 
   useEffect(() => {
-    setPrevPage(currentPage - 1 >= 0 ? currentPage - 1 : null);
-    setNextPage(currentPage + 1 < pages.length - 1 ? currentPage + 1 : null);
-  }, [pages, currentPage]);
+    setPrevPage(page - 1 > 0 ? page - 1 : null);
+    setNextPage(page + 1 <= pages.length ? page + 1 : null);
+  }, [pages, page]);
 
   useEffect(() => {
     setPrevPages(createArrayOfGivenNumber(limit - 1, "reverse"));
@@ -24,19 +24,19 @@ const PagesDots = ({ pages, currentPage, setCurrentPage, limit }) => {
     const selectedPage = window.prompt(`Páginas: 1-${pages.length}`);
 
     if (selectedPage > 0 && selectedPage <= pages.length) {
-      setCurrentPage(selectedPage - 1);
+      setPage(selectedPage);
     }
   };
 
   return (
     <>
-      {currentPage < pages.length - 1 ? (
+      {page < pages.length - 1 ? (
         <BeginningPages
           prevPage={prevPage}
-          currentPage={currentPage}
+          page={page}
+          setPage={setPage}
           nextPage={nextPage}
           nextPages={nextPages}
-          setCurrentPage={setCurrentPage}
           selectPage={selectPage}
           pages={pages}
         />
@@ -44,8 +44,8 @@ const PagesDots = ({ pages, currentPage, setCurrentPage, limit }) => {
         <EndPages
           prevPage={prevPage}
           prevPages={prevPages}
-          currentPage={currentPage}
-          setCurrentPage={setCurrentPage}
+          page={page}
+          setPage={setPage}
           selectPage={selectPage}
         />
       )}

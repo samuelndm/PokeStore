@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import PagesDefault from "./PagesDefault";
 import PagesDots from "./PagesDots";
 
-const Pages = ({ pages, currentPage, setCurrentPage }) => {
+const Pages = ({ page, setPage, pages }) => {
   const [limit, setLimit] = useState(4);
 
   const isWindowWidthSize = (width) => {
@@ -23,18 +23,9 @@ const Pages = ({ pages, currentPage, setCurrentPage }) => {
   return (
     <>
       {pages.length < limit ? (
-        <PagesDefault
-          pages={pages}
-          currentPage={currentPage}
-          setCurrentPage={setCurrentPage}
-        />
+        <PagesDefault page={page} setPage={setPage} pages={pages} />
       ) : (
-        <PagesDots
-          pages={pages}
-          currentPage={currentPage}
-          setCurrentPage={setCurrentPage}
-          limit={limit}
-        />
+        <PagesDots pages={pages} page={page} setPage={setPage} limit={limit} />
       )}
     </>
   );

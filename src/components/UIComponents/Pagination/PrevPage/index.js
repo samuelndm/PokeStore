@@ -1,15 +1,11 @@
 import React from "react";
 import { Icon } from "../styles";
 
-const PrevPage = ({ setCurrentPage }) => {
+const PrevPage = ({ page, setPage }) => {
   return (
     <Icon
       className='fas fa-chevron-left'
-      onClick={(e) =>
-        setCurrentPage((currentPage) =>
-          currentPage >= 1 ? currentPage - 1 : currentPage
-        )
-      }
+      onClick={(e) => setPage(page > 1 ? page - 1 : page)}
     />
   );
 };

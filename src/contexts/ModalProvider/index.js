@@ -22,9 +22,11 @@ const ModalProvider = ({ children }) => {
     <ModalContext.Provider value={{ createModal }}>
       {children}
 
-      <UI.Modal openModal={openModal} closeModal={setOpenModal} size={size}>
-        {content}
-      </UI.Modal>
+      {content && (
+        <UI.Modal openModal={openModal} closeModal={setOpenModal} size={size}>
+          {content}
+        </UI.Modal>
+      )}
     </ModalContext.Provider>
   );
 };

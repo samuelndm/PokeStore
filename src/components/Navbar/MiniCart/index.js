@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { handleCartResume } from "../../../utils/CartUtil";
+import { handleCartResume } from "../../../utils/cartUtil";
 import { useCartContext } from "../../../contexts";
 import * as S from "./styles";
 import Items from "./Items";

@@ -1,6 +1,6 @@
 import React, { useCallback, useEffect, useState } from "react";
 import { getPokemonById } from "../../services/endpoints/pokemon";
-import { getPokemonTypeByName } from "../../utils/PokemonListUtil";
+import { getPokemonTypeByName } from "../../utils/pokemonListUtil";
 import {
   useNotificationContext,
   useCurrentPokemonTypeContext,
@@ -8,7 +8,7 @@ import {
 import * as GS from "../../assets/styles/GlobalStyles";
 import * as C from "../../components";
 
-const PokemonPage = ({ match }) => {
+const PokemonInfoPage = ({ match }) => {
   const { createNotification, NOTIFICATION_TYPES } = useNotificationContext();
   const {
     currentPokemonType,
@@ -49,4 +49,4 @@ const PokemonPage = ({ match }) => {
   );
 };
 
-export default PokemonPage;
+export default PokemonInfoPage;

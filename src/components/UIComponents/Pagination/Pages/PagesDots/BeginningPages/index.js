@@ -1,37 +1,37 @@
 import React from "react";
-import { Page } from "../../styles";
+import * as S from "../../styles";
 
 const BeginningPages = ({
   prevPage,
-  currentPage,
+  page,
+  setPage,
   nextPage,
   nextPages,
-  setCurrentPage,
   selectPage,
   pages,
 }) => {
   return (
     <>
       {prevPage !== null && (
-        <Page onClick={(e) => setCurrentPage(prevPage)}>{prevPage + 1}</Page>
+        <S.Page onClick={(e) => setPage(prevPage)}>{prevPage}</S.Page>
       )}
 
-      <Page isActive={true}>{currentPage + 1}</Page>
+      <S.Page isActive={true}>{page}</S.Page>
 
       {nextPages.map(
-        (page) =>
+        (index) =>
           nextPage !== null &&
-          currentPage + page + 1 < pages.length && (
-            <Page
-              onClick={(e) => setCurrentPage(nextPage + page)}
-              key={`BeginningPages-${page}`}
+          page + index < pages.length && (
+            <S.Page
+              onClick={(e) => setPage(nextPage + index)}
+              key={`BeginningPages-${index}`}
             >
-              {nextPage + page + 1}
-            </Page>
+              {nextPage + index}
+            </S.Page>
           )
       )}
 
-      <Page onClick={(e) => selectPage(e)}>...</Page>
+      <S.Page onClick={(e) => selectPage(e)}>...</S.Page>
     </>
   );
 };
