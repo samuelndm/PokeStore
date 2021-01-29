@@ -48,8 +48,6 @@ const PokemonsListPage = ({ match }) => {
   useEffect(() => {
     const type = UTIL.getPokemonTypeByName(match.params.slug);
     const searchedPokemon = UTIL.getSearchedPokemonParam(history);
-    // const itemsPerPage = PAGINATION_UTIL.getPerPageParam(history);
-    // const page = PAGINATION_UTIL.getCurrentPageParam(history) - 1;
 
     if (type) {
       setCurrentPokemonType(type);
