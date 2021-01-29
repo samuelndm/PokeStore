@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
+import { updateSearchByKey } from "../../../utils";
+import { URL_PARAMS } from "../../../utils/constants";
+import { resetPaginationUrl } from "../../../utils/paginationUtil";
 import {
   useCurrentPokemonTypeContext,
   useNotificationContext,
 } from "../../../contexts";
-import { updateSearchByKey } from "../../../utils";
 import * as S from "./styles";
 
 const Search = () => {
@@ -18,9 +20,12 @@ const Search = () => {
 
     if (currentPokemonType) {
       const url = `/tipo/${currentPokemonType.name.en_us}`;
-      const params = updateSearchByKey(
+
+      resetPaginationUrl(history);
+
+      let params = updateSearchByKey(
         history.location.search,
-        "searched_pokemon",
+        URL_PARAMS.SEARCHED_POKEMON,
         keyword
       );
 

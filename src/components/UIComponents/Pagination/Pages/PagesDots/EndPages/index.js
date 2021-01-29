@@ -1,5 +1,5 @@
 import React from "react";
-import { Page } from "../../styles";
+import * as S from "../../styles";
 
 const EndPages = ({ prevPage, prevPages, page, setPage, selectPage }) => {
   return (
@@ -7,17 +7,17 @@ const EndPages = ({ prevPage, prevPages, page, setPage, selectPage }) => {
       {prevPages.map(
         (index) =>
           !!prevPage && (
-            <Page
+            <S.Page
               onClick={(e) => setPage(prevPage - index)}
               key={`EndPages-${index}`}
             >
               {prevPage - index}
-            </Page>
+            </S.Page>
           )
       )}
 
-      <Page onClick={(e) => selectPage(e)}>...</Page>
-      <Page isActive={true}>{page}</Page>
+      <S.Page onClick={(e) => selectPage(e)}>...</S.Page>
+      <S.Page isActive={true}>{page}</S.Page>
     </>
   );
 };

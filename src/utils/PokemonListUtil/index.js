@@ -1,5 +1,5 @@
 import { normalizeString } from "..";
-import { POKEMON_TYPES_LIST } from "../constants";
+import { POKEMON_TYPES_LIST, URL_PARAMS } from "../constants";
 
 export const getPokemonTypeByName = (name) => {
   if (!name) return null;
@@ -17,7 +17,7 @@ export const getPokemonTypeByName = (name) => {
 
 export const getSearchedPokemonParam = (history) => {
   const urlParams = new URLSearchParams(history?.location?.search);
-  const searchedPokemonParam = urlParams.get("searched_pokemon");
+  const searchedPokemonParam = urlParams.get(URL_PARAMS.SEARCHED_POKEMON);
 
   return searchedPokemonParam || "";
 };

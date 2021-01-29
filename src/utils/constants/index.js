@@ -1,3 +1,9 @@
+export const URL_PARAMS = {
+  SEARCHED_POKEMON: "searched_pokemon",
+  PER_PAGE_KEY: "per_page",
+  PAGE_KEY: "page",
+};
+
 export const POKEMON_TYPES = {
   NORMAL: "normal",
   FIGHTING: "fighting",

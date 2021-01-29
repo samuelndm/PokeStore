@@ -1,9 +1,9 @@
 import React from "react";
-import { Icon } from "../styles";
+import * as S from "../styles";
 
 const FirstPage = ({ setPage }) => {
   return (
-    <Icon className='fas fa-angle-double-left' onClick={(e) => setPage(1)} />
+    <S.Icon className='fas fa-angle-double-left' onClick={(e) => setPage(1)} />
   );
 };
 
