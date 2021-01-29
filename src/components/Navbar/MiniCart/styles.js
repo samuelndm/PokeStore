@@ -59,14 +59,16 @@ export const Quantity = styled.span`
 `;
 
 export const DarkBackground = styled.div`
-  z-index: 80;
-  position: fixed;
-  top: 0;
-  right: 0;
-  left: 0;
-  bottom: 0;
-  background-color: #333;
-  opacity: 0.4;
+  @media screen and (max-width: 991px) {
+    z-index: 80;
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background-color: #333;
+    opacity: 0.4;
 
-  display: ${({ openItems }) => (openItems ? "flex" : "none")};
+    display: ${({ openItems }) => (openItems ? "flex" : "none")};
+  }
 `;
