@@ -36,4 +36,8 @@ export const Quantity = styled.div`
   font-family: aria;
   font-size: 16px;
   font-weight: 500;
+
+  & .quantity-up {
+    display: none;
+  }
 `;

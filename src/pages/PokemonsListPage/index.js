@@ -1,6 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 import { getTypesById } from "../../services/endpoints/type";
+import { ScrollToTop } from "../../utils";
 import * as CONTEXT from "../../contexts";
 import * as UTIL from "../../utils/pokemonListUtil";
 import * as S from "./styles";
@@ -23,29 +24,33 @@ const PokemonsListPage = ({ match }) => {
   const [pokemonsFiltered, setPokemonsFiltered] = useState([]);
   const [pokemonsList, setPokemonsList] = useState([]);
 
-  const loadPokemons = async (pokemonType, keyword, pagination) => {
-    try {
-      const { data } = await getTypesById(pokemonType.id);
+  const loadPokemons = useCallback(
+    async (pokemonType, keyword, pagination) => {
+      try {
+        const { data } = await getTypesById(pokemonType.id);
 
-      const temp = data?.pokemon?.map(({ pokemon }) => pokemon) || [];
-      const filteredPokemons = UTIL.filterPokemonsByKeyword(temp, keyword);
-      const paginatedPokemons = UTIL.handlePokemonsPagination(
-        filteredPokemons,
-        pagination
-      );
+        const temp = data?.pokemon?.map(({ pokemon }) => pokemon) || [];
+        const filteredPokemons = UTIL.filterPokemonsByKeyword(temp, keyword);
+        const paginatedPokemons = UTIL.handlePokemonsPagination(
+          filteredPokemons,
+          pagination
+        );
 
-      setPokemonsFiltered(filteredPokemons);
-      setPokemonsList(paginatedPokemons);
-    } catch (err) {
-      console.error(err);
-      createNotification({
-        type: NOTIFICATION_TYPES.ERROR,
-        message: "Ocorreu algum erro ao carregar os pokemons.",
-      });
-    }
-  };
+        setPokemonsFiltered(filteredPokemons);
+        setPokemonsList(paginatedPokemons);
+      } catch (err) {
+        console.error(err);
+        createNotification({
+          type: NOTIFICATION_TYPES.ERROR,
+          message: "Ocorreu algum erro ao carregar os pokemons.",
+        });
+      }
+    },
+    [createNotification, NOTIFICATION_TYPES.ERROR]
+  );
 
   useEffect(() => {
+    ScrollToTop();
     const type = UTIL.getPokemonTypeByName(match.params.slug);
     const searchedPokemon = UTIL.getSearchedPokemonParam(history);
 
@@ -58,8 +63,6 @@ const PokemonsListPage = ({ match }) => {
     } else {
       history.push("/lista-tipos");
     }
-
-    // eslint-disable-next-line
   }, [
     match,
     history,
@@ -67,6 +70,7 @@ const PokemonsListPage = ({ match }) => {
     itemsPerPage,
     page,
     setCurrentPokemonType,
+    loadPokemons,
   ]);
 
   return UTIL.getSearchedPokemonParam(history) && !pokemonsList.length ? (
