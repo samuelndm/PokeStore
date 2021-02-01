@@ -59,8 +59,8 @@ Slider.propTypes = {
   slidesToShow: PropTypes.number,
   hasDots: PropTypes.bool,
   responsive: PropTypes.array,
-  CustomPrevArrow: PropTypes.element,
-  CustomNextArrow: PropTypes.element,
+  CustomPrevArrow: PropTypes.object,
+  CustomNextArrow: PropTypes.object,
 };
 
 export default Slider;
