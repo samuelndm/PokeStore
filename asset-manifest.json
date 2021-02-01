@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/poke-shop/static/css/main.acb94acc.chunk.css",
-    "main.js": "/poke-shop/static/js/main.57f1da4b.chunk.js",
-    "main.js.map": "/poke-shop/static/js/main.57f1da4b.chunk.js.map",
+    "main.js": "/poke-shop/static/js/main.adb0e620.chunk.js",
+    "main.js.map": "/poke-shop/static/js/main.adb0e620.chunk.js.map",
     "runtime-main.js": "/poke-shop/static/js/runtime-main.4cd8d8c0.js",
     "runtime-main.js.map": "/poke-shop/static/js/runtime-main.4cd8d8c0.js.map",
     "static/css/2.353611c5.chunk.css": "/poke-shop/static/css/2.353611c5.chunk.css",
@@ -23,6 +23,6 @@
     "static/css/2.353611c5.chunk.css",
     "static/js/2.ae3a9df2.chunk.js",
     "static/css/main.acb94acc.chunk.css",
-    "static/js/main.57f1da4b.chunk.js"
+    "static/js/main.adb0e620.chunk.js"
   ]
 }
