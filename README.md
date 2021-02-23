@@ -1,4 +1,4 @@
-## This is a Pokémon shop application using ReactJS
+## Pokémon shop application using ReactJS that fetches data from an API with hundreds of pokemons.
 
 Live Demo: https://samuelndm.github.io/poke-shop 
 
